@@ -1,4 +1,4 @@
-name: Swift
+name: GithubActions Demo
 
 on:
   push:
@@ -7,13 +7,19 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
-    runs-on: macos-latest
-
+  test:
+    name: Unit Test
+    runs-on: macOS-latest
+    strategy:
+        matrix:
+          destination: ['platform=iOS Simulator,OS=13.3,name=iPhone X']
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Build and test
+        run: |
+          cd GithubActionsDemo
+          xcodebuild clean test -project GithubActionsDemo
+.xcodeproj -scheme GithubActionsDemo -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        env: 
+         destination: ${{ matrix.destination }}

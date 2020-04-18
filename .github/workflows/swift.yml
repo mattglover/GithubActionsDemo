@@ -15,7 +15,7 @@ jobs:
     
     strategy:
       matrix:
-        destination: ["platform=iOS Simulator,name=iPhone 11", "platform=iOS Simulator,name=iPad Pro (12.9-inch) (3rd generation)"]
+        destination: ["platform=iOS Simulator,name=iPhone 11", "platform=iOS Simulator,id=0AEDE53E-9FEA-4583-9A78-847A96562E6D"]
     
     steps:
     - uses: actions/checkout@master

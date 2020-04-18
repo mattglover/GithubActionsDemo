@@ -21,3 +21,13 @@ jobs:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
       run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination "${{ matrix.destination }}"
+  
+  build:
+    name: Build Archive
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@master
+    - name: Start xcodebuild test
+      run: xcodebuild archive -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -sdk iphoneos -configuration Debug -archivePath $PWD/build/GithubActionsDemo.xcarchive -allowProvisioningUpdates"
+  

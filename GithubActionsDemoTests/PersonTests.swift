@@ -36,4 +36,8 @@ class PersonTests: XCTestCase {
         
         XCTAssertEqual(sut.reverseFullname, "Duck, Donald")
     }
+    
+    func testFailingTest() {
+        XCTFail("Deliberately failing this test")
+    }
 }

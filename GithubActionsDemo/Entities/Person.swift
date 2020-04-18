@@ -17,4 +17,9 @@ struct Person {
         guard let surname = surname else {  return forename }
         return "\(forename) \(surname)"
     }
+    
+    var reverseFullname: String {
+        guard let surname = surname else {  return forename }
+        return "\(surname), \(forename)"
+    }
 }

@@ -24,4 +24,16 @@ class PersonTests: XCTestCase {
         
         XCTAssertEqual(sut.fullname, "Donald")
     }
+
+    func testCorrectReverseFullNameForPersonWithoutSurname() {
+        sut = Person(forename: "Donald", surname: nil, birthPlace: "Someplace")
+        
+        XCTAssertEqual(sut.reverseFullname, "Donald")
+    }
+
+    func testCorrectReverseFullNameForPersonWithForenameAndSurname() {
+        sut = Person(forename: "Donald", surname: "Duck", birthPlace: "Someplace")
+        
+        XCTAssertEqual(sut.reverseFullname, "Duck, Donald")
+    }
 }

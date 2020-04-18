@@ -6,12 +6,18 @@ on:
   pull_request:
     branches: [ master ]
 
+  
+
 jobs:
   test:
     name: Unit Test
     runs-on: macOS-latest
     
+    strategy:
+      matrix:
+        destination: ["platform=iOS Simulator,name=iPhone 11", "platform=iOS Simulator,name=iPad Pro"]
+    
     steps:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
-      run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination "platform=iOS Simulator,name=iPhone 11"
+      run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination ${{ matrix.destination }}

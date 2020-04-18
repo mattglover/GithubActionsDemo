@@ -14,5 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
-   #   run: xcrun instruments -s devices
-       run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination "name=iPhone 11"
+       run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo

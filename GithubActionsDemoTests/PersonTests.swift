@@ -18,4 +18,10 @@ class PersonTests: XCTestCase {
         
         XCTAssertEqual(sut.fullname, "Donald Duck")
     }
+
+    func testCorrectFullNameForPersonWithoutSurname() {
+        sut = Person(forename: "Donald", surname: nil, birthPlace: "Someplace")
+        
+        XCTAssertEqual(sut.fullname, "Donald")
+    }
 }

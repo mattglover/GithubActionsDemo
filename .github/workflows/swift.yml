@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
-      run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo
+      run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination "platform=iOS Simulator,name=iPhone 11"

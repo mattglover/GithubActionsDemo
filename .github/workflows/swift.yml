@@ -6,8 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-  
-
 jobs:
   test:
     name: Unit Test

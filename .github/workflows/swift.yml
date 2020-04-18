@@ -15,9 +15,9 @@ jobs:
     
     strategy:
       matrix:
-        destination: ["platform=iOS Simulator,name=iPhone 11", "generic/platform=iOS,id=0AEDE53E-9FEA-4583-9A78-847A96562E6D"]
+        destination: ['platform=iOS Simulator,name=iPhone 11', 'platform=iOS Simulator,name=iPad Pro (12.9-inch) (3rd generation)']
     
     steps:
     - uses: actions/checkout@master
     - name: Start xcodebuild test
-      run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination ${{ matrix.destination }}
+      run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination "${{ matrix.destination }}"

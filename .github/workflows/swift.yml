@@ -1,4 +1,4 @@
-name: Swift
+name: GithubActions Demo
 
 on:
   push:
@@ -7,13 +7,12 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
-    runs-on: macos-latest
-
+  test:
+    name: Unit Test
+    runs-on: macOS-latest
+    
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - uses: actions/checkout@master
+    - name: Start xcodebuild test
+      run: xcodebuild clean test -project GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination "platform=iOS Simulator,name=iPhone X"
+

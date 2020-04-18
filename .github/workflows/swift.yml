@@ -15,7 +15,7 @@ jobs:
     
     strategy:
       matrix:
-        destination: ["platform=iOS Simulator,name=iPhone 11", "platform=iOS Simulator,id=0AEDE53E-9FEA-4583-9A78-847A96562E6D"]
+        destination: ["platform=iOS Simulator,name=iPhone 11", "generic/platform=iOS,id=0AEDE53E-9FEA-4583-9A78-847A96562E6D"]
     
     steps:
     - uses: actions/checkout@master
